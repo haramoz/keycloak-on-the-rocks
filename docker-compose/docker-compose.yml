@@ -31,4 +31,3 @@ services:
       - '5438:5432'
     volumes:
       - ~/Documents/db/postgres-data:/var/lib/postgresql/data
-      #- ./init-keycloak-db.sql:/docker-entrypoint-initdb.d/init-keycloak-db.sql

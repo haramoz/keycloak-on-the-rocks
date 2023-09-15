@@ -1,0 +1,10 @@
+{
+    "realm": "bvplus",
+    "auth-server-url": "http://localhost:8081/auth/",
+    "ssl-required": "none",
+    "resource": "bvplus",
+    "credentials": {
+      "secret": "0ZSUkAcIIuyatIClrUaXVyaoJiAjQBxL"
+    },
+    "confidential-port": 0
+}
