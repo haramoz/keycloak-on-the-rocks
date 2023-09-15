@@ -1,7 +1,7 @@
-version: '3.7'
+version: '3.3'
 services:
   keycloak-authorization-server:
-    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
+    image: quay.io/keycloak/keycloak:19.0.3-legacy
     hostname: keycloak-server
     ports:
       - "8081:8081"
@@ -10,18 +10,19 @@ services:
       - "KEYCLOAK_PASSWORD=admin"
       - "JAVA_OPTS=-Djboss.http.port=8081"
       - "DB_VENDOR=POSTGRES"
-      - "DB_ADDR=host.docker.internal"
+      - "DB_ADDR=postgres"
       - "DB_DATABASE=keycloak"
       - "DB_USER=keycloak"
-      - "DB_SCHEMA=keycloak"
       - "DB_PASSWORD=keycloak"
+    depends_on:
+      - postgres
   postgres:
     image: postgres:10.5
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=mydb
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=keycloak
+      - POSTGRES_DB=keycloak
     logging:
       options:
         max-size: 10m
@@ -29,4 +30,5 @@ services:
     ports:
       - '5438:5432'
     volumes:
-      - ~/Documents/dr-sattlers-bar-data/postgres-data:/var/lib/postgresql/data
+      - ~/Documents/db/postgres-data:/var/lib/postgresql/data
+      #- ./init-keycloak-db.sql:/docker-entrypoint-initdb.d/init-keycloak-db.sql
