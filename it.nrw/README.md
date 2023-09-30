@@ -21,6 +21,9 @@ This project is built as the test project for the keycloak. It is deployed in th
 - google works too!!
 - recorded a video to show to work
 
+## SSL and Proxy
+We need to figure out how to integrate with ssl and also about proxy.
+
 ## Notes
 To represent the user add the following to the server-identities definition <secret value="QXBwbGVAMTIzIw==" />
 arka/Apple...
@@ -35,6 +38,7 @@ sudo systemctl start wildfly
 - keycloak with databases docker-compose ideas https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-postgres-jdbc-ping.yml
 - social login https://www.mastertheboss.com/keycloak/google-social-login-with-keycloak/?expand_article=1
 - https://medium.com/@hasnat.saeed/install-keycloak-openid-connect-client-adapter-on-wildfly-on-ubuntu-18-04-ef98a99fc528
+- https://www.keycloak.org/server/reverseproxy
 
 
 
