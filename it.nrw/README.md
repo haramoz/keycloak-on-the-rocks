@@ -31,7 +31,8 @@ arka/Apple...
 sudo systemctl stop wildfly
 sudo systemctl start wildfly
 
-./jboss-cli.sh --file=adapter-elytron-install-offline.cli
+When Wildfly is automatically running on the system up, the app is also automatically up, if previously deployed, the Keycloak is run along with the dockerized database with the simple docker-compose up command.
+
 ## References
 - Wildfly installation steps: https://linux.how2shout.com/install-wildfly-application-server-on-ubuntu-20-04-22-04-lts/
 - build a dummy jsf project using maven for the wildfly testing https://medium.com/swlh/create-a-primefaces-jsf-project-with-maven-and-wildfly-bb695bed84c8
