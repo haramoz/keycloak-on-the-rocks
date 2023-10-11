@@ -24,6 +24,19 @@ This project is built as the test project for the keycloak. It is deployed in th
 ## SSL and Proxy
 We need to figure out how to integrate with ssl and also about proxy.
 
+Root SSl certificate
+openssl genrsa -des3 -out rootCA.key 2048
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 2048 -validity 365 -keystore server.keystore -dname "cn=Server Administrator,o=Acme,c=GB" -keypass secret -storepass secret
+
+keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12
+
+-> The original keystore "server.keystore" is backed up as "server.keystore.old"...
+
+https://www.mastertheboss.com/jbossas/jboss-security/complete-tutorial-for-configuring-ssl-https-on-wildfly/
+
+./jboss-cli.sh --file=/path_to_your_script/configure-ssl.cli
+
 ## Notes
 To represent the user add the following to the server-identities definition <secret value="QXBwbGVAMTIzIw==" />
 arka/Apple...
