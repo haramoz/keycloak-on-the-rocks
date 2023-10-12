@@ -35,6 +35,8 @@ keytool -importkeystore -srckeystore server.keystore -destkeystore server.keysto
 
 https://www.mastertheboss.com/jbossas/jboss-security/complete-tutorial-for-configuring-ssl-https-on-wildfly/
 
+You can find the above CLI script at: http://bit.ly/2FGCMNg
+
 ./jboss-cli.sh --file=/path_to_your_script/configure-ssl.cli
 
 ## Notes
